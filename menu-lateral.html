@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Menu</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--open sans font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+    body {
+     
+      height: 100%;
+    }
+    header {
+      position:fixed;
+      left: 0%;
+      right: 0%;
+      top: 0%;
+      bottom: 0%;
+      height: 5rem;
+      width: 100vw;
+      background: #0D6EFD;
+    }
+    
+    nav {
+        width: 4rem;
+      /*4rem closed = 14rem open*/
+        position: fixed;
+        left: 0%;
+        top: 5rem;
+        bottom: 0%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        background-color: #F8F9FA;
+        transition: all 1.1s;
+    }
+    .icons-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4rem;
+      width: 4rem;
+      text-align: center;
+    }
+    .links-nav {
+      display: flex;
+      align-items: center;
+      height: 4rem;
+      width: 10rem;
+      display: none;
+    }
+    .span-nav {
+      left: 4.4rem;
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 20px;
+      color: #495057;
+      transition: all 1.6s;
+    }
+    .item-nav-main,
+    .item-nav-info {
+      font-size: 1.2rem;
+    }
+    .item-nav-btn-toogle{
+      background: #DEE2E6;
+      height: 4rem;
+      text-align: center;
+      display: grid;
+      grid-template-columns: 4rem 14rem;
+      cursor: pointer;
+    }
+    .span-nav-btn-toogle {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 20px;
+      color: #495057;
+    }
+    .active, .flex-nav-item:hover{
+      background-color:#D2F4EA;
+    }
+    .flex-nav-item{
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 4rem 14rem;
+    }
+    /*links separados*/
+    .item-nav-main {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .item-nav-info {
+      display: grid;
+      grid-template-columns: 4rem 14rem;
+     
+    }
+    .bi-info-circle-fill{
+      color:#0D6EFD;
+    }
+    .bi-list{
+      font-size: 1.6rem;
+      transition: all 1s;
+      -webkit-transition: 1s;
+      -moz-transition: 1s;
+      -o-transition: 1s;
+      -ms-transition: 1s;
+        transition: all 1s;
+        transform: rotate(-360deg);
+    }
+    .bi-x {
+      font-size: 1.5rem;
+      -webkit-transition: 1s;
+      -moz-transition: 1s;
+      -o-transition: 1s;
+      -ms-transition: 1s;
+        transition: all 1s;
+        transform: rotate(-180deg);
+    }
+
+    /*drop down nav*/
+
+    .drop-list-alinhamento{
+      display: none;
+      justify-content: space-between;
+    }
+    .dropdown-nav{
+     display: none;
+     flex-direction: column;
+     flex-wrap: wrap;
+     width: 14rem;
+     position: relative;
+     transition: all 0.5s;
+
+    }
+
+    .dropdown-nav a{
+      text-decoration: none;
+      color:#495057;
+      width: 100%;
+      transition: all 0.5s;
+    }
+    .dropdown-nav a:hover{
+      text-decoration: none;
+      color:#DEE2E6;
+      width: 100%;
+    }
+     
+    .dropdown-nav a {
+      left: 1.4rem;
+      position: relative;
+      transition: all 0.5s; 
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+  </header>
+
+  <nav> 
+    <!-- toogle btn -->
+    <div class="item-nav-btn-toogle ">
+      <div class="icons-nav ">
+        <i class="bi bi-list"></i>
+      </div>
+      <div class="links-nav">
+        <span class="span-nav-btn-toogle span-nav"> Menu </span>
+      </div>
+    </div>
+    <!-- area principal -->
+    <div class="item-nav-main">
+      
+
+     <div class="flex-nav-item active ">
+      <div class="icons-nav">
+        <i class="bi bi-house-door"></i>
+      </div>
+      <div class="links-nav ">
+        <span class="span-nav"> Página inicial </span>
+      </div>
+    </div>
+
+    <div class="flex-nav-item ">
+      <div class="icons-nav">
+        <i class="bi bi-box-arrow-down-right"></i>
+      </div>
+      <div class="links-nav drop-list-alinhamento drop-btn-nav ">
+        <span class="span-nav ">Drop list 1</span>
+        <span> <i class="bi bi-caret-down-fill me-2"></i></span>
+      </div>
+      <div class="dropdown-nav">
+        <a href="#">link 01</a>
+        <a href="#">link 02</a>
+        <a href="#">link 03</a>
+        
+      </div>
+
+    </div>
+
+    </div>
+
+    <div class="item-nav-info ">
+      <div class="icons-nav">
+        <i class="bi bi-info-circle-fill"></i>
+      </div>
+      <div class="links-nav ">
+        <span class="span-nav"> Informações do Sistema </span>
+      </div>
+    </div>
+  </nav>
+  
+ </main>
+ 
+    <script>
+     
+      const toogleNavMenu = document.querySelector('.item-nav-btn-toogle');
+      const changeIconToogle = document.querySelector('.icons-nav i');
+      
+      const linkNavList = document.querySelectorAll('.links-nav');
+
+      const spanNavList = document.querySelectorAll('.span-nav');
+      const itemNavMain = document.querySelector('.item-nav-main');
+      const flexMenuItem = document.querySelectorAll('.flex-nav-item');
+    
+
+      const nav = document.querySelector('nav');
+       //pega todos os icones...
+      const iElements = nav.querySelectorAll('i');
+      const aElements = nav.querySelectorAll('a');
+     
+      
+     //abre o menu pelos ícones ou pelo toogle inicial
+      iElements.forEach((elementos) => {
+        elementos.addEventListener("click", function() {
+          if (toogleNavMenu.classList.contains('active-toggle')) {
+            changeIconToogle.classList.remove('bi-x');
+            changeIconToogle.classList.add('bi-list');
+            toogleNavMenu.classList.remove('active-toggle');
+            nav.style.width = '4rem';
+            //recebe o resultado do loop...
+            linkNavList.forEach(function (linkNav) {
+              linkNav.style.display = 'none';
+            });
+          } else {
+            changeIconToogle.classList.remove('bi-list');
+            changeIconToogle.classList.add('bi-x');
+            toogleNavMenu.classList.add('active-toggle');
+            nav.style.width = '14rem';
+            // espera a transição de abertura para mostrar os links <
+            function showLinksMenu() {
+              linkNavList.forEach(function (linkNav) {
+                linkNav.style.display = 'flex';
+              });
+            }
+            setTimeout(showLinksMenu, 350);
+          }
+        });
+      });
+
+
+      /*MENU DROP DOWN DO NAV abre e fecha a lista! */
+      const dropBtnNav = document.querySelectorAll('.drop-btn-nav');
+      const dropdownNav = document.querySelectorAll('.dropdown-nav');
+      dropBtnNav.forEach((dropBtn, index) => {
+        const dropdown = dropdownNav[index];
+        
+        dropBtn.addEventListener('click', () => {
+          if (dropdown.style.display === 'none') {
+            dropdown.style.display = 'flex';
+          } else {
+            dropdown.style.display = 'none';
+          }
+        });
+      });
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script> 
+</body>
+
+</html> 
