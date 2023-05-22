@@ -17,31 +17,44 @@
       
      //abre o menu pelos ícones ou pelo toogle inicial
       iElements.forEach((elementos) => {
+        
         elementos.addEventListener("click", function() {
-          if (toogleNavMenu.classList.contains('active-toggle')) {
-            changeIconToogle.classList.remove('bi-x');
-            changeIconToogle.classList.add('bi-list');
-            toogleNavMenu.classList.remove('active-toggle');
-            nav.style.width = '4rem';
-            //recebe o resultado do loop...
-            linkNavList.forEach(function (linkNav) {
-              linkNav.style.display = 'none';
-            });
-          } else {
-            changeIconToogle.classList.remove('bi-list');
-            changeIconToogle.classList.add('bi-x');
-            toogleNavMenu.classList.add('active-toggle');
-            nav.style.width = '14rem';
-            // espera a transição de abertura para mostrar os links <
-            function showLinksMenu() {
-              linkNavList.forEach(function (linkNav) {
-                linkNav.style.display = 'flex';
-              });
-            }
-            setTimeout(showLinksMenu, 350);
+          if ((elementos.classList.contains('bi-caret-down-fill'))) {
+
+            return 
           }
+          else{
+
+            if (toogleNavMenu.classList.contains('active-toggle')) {
+              changeIconToogle.classList.remove('bi-x');
+              changeIconToogle.classList.add('bi-list');
+              toogleNavMenu.classList.remove('active-toggle');
+              nav.style.width = '4rem';
+              //recebe o resultado do loop...
+              linkNavList.forEach(function (linkNav) {
+                linkNav.style.display = 'none';
+              });
+            } else {
+              changeIconToogle.classList.remove('bi-list');
+              changeIconToogle.classList.add('bi-x');
+              toogleNavMenu.classList.add('active-toggle');
+              nav.style.width = '14rem';
+              // espera a transição de abertura para mostrar os links <
+              function showLinksMenu() {
+                linkNavList.forEach(function (linkNav) {
+                  linkNav.style.display = 'flex';
+                });
+              }
+              setTimeout(showLinksMenu, 350);
+            }
+
+          }
+
+         
+         
         });
-      });
+      }
+    );
 
 
       /*MENU DROP DOWN DO NAV abre e fecha a lista! */
