@@ -6,6 +6,7 @@
   body {
    
     height: 100%;
+    background-color: #495057;
   }
   header {
     position:fixed;
@@ -30,6 +31,7 @@
       flex-direction: column;
       background-color: #F8F9FA;
       transition: all 1.1s;
+
   }
   .icons-nav {
     display: flex;
@@ -99,7 +101,6 @@
   }
   .bi-list{
     font-size: 1.6rem;
-    transition: all 1s;
     -webkit-transition: 1s;
     -moz-transition: 1s;
     -o-transition: 1s;
@@ -150,3 +151,27 @@
     position: relative;
     transition: all 0.5s; 
   }
+
+  /*breakpoints seguindo padrões bootstrap*/
+
+/*----------------------X-Small*/
+
+@media screen and (max-width: 576px) and (max-width:768px) {
+
+  nav{
+    display: none;
+  }
+
+  
+}
+
+
+
+
+/*------------------------Medium(md)*/
+@media screen and (min-width: 768px){ 
+
+
+  
+}
+
