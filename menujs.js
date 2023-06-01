@@ -5,6 +5,7 @@ spans = nav.querySelectorAll('span'),
 noSideBarList = nav.querySelectorAll('#bodySideBar .noSideBarList'),
 SideBarDrop = nav.querySelectorAll('#bodySideBar .withSideBarList');
 
+
 button.addEventListener('click', () => {
   if (icon.classList.contains('bi-list')) {
     nav.style.width = "var(--menu-collapse-width)";
@@ -25,12 +26,28 @@ button.addEventListener('click', () => {
 
 /*Ação do dropdown*/
 
+
 SideBarDrop.forEach(dropMenu => {
   dropMenu.addEventListener('click', () => {
     const ul = dropMenu.querySelector('ul'),
           arrow = dropMenu.querySelector('span .bi-caret-right-fill');
+          const clickedElements = [];
 
-        if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-right-fill')) {
+    if (clickedElements.includes(dropMenu)) {
+      clickedElements.splice(clickedElements.indexOf(dropMenu), 1);
+    } else {
+      clickedElements.push(dropMenu);
+    }
+
+    const notClickedElements = Array.from(SideBarDrop).filter(item => !clickedElements.includes(item));
+
+    notClickedElements.forEach(elementNaoClicado => {
+        elementNaoClicado.classList.add('display-none')
+    });
+   
+    
+
+        if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-right-fill') ) {
            
             noSideBarList.forEach(noSideBarListItem => {
               if (!(noSideBarListItem.classList.contains('display-none'))) {
@@ -39,6 +56,8 @@ SideBarDrop.forEach(dropMenu => {
            
             });
 
+
+            
             ul.classList.remove('display-none')
             ul.classList.add('d-flex')
             arrow.classList.remove('bi-caret-right-fill')
@@ -47,6 +66,13 @@ SideBarDrop.forEach(dropMenu => {
        else{
             ul.classList.remove('d-flex')
             ul.classList.add('display-none')
+            
+            SideBarDrop.forEach(displayBlock =>{
+              if(displayBlock.classList.contains('display-none')){
+                displayBlock.classList.remove('display-none')
+              } } )
+
+
             const   arrow = dropMenu.querySelector('span .bi-caret-left-fill');
             if(arrow.classList.contains('bi-caret-left-fill')){;
             arrow.classList.remove('bi-caret-left-fill')
@@ -61,5 +87,6 @@ SideBarDrop.forEach(dropMenu => {
             })
     }
 
+    
   });
 });
