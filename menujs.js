@@ -3,10 +3,11 @@ button = nav.querySelector('button'),
 icon = button.querySelector('i'),
 spans = nav.querySelectorAll('span'),
 noSideBarList = nav.querySelectorAll('#bodySideBar .noSideBarList'),
-SideBarDrop = nav.querySelectorAll('#bodySideBar .withSideBarList');
-
-
+SideBarDrop = nav.querySelectorAll('#bodySideBar .withSideBarList'),
+checkUls = nav.querySelectorAll('ul');
+var clickedOrNotBtn = false;
 button.addEventListener('click', () => {
+  clickedOrNotBtn = true;
   if (icon.classList.contains('bi-list')) {
     nav.style.width = "var(--menu-collapse-width)";
     spans.forEach(removeDisplayNone => {
@@ -20,6 +21,19 @@ button.addEventListener('click', () => {
     spans.forEach(addDisplayNone => {
       addDisplayNone.classList.add('display-none');
     });
+
+      checkUls.forEach(esconderUls =>{
+        if(!(esconderUls.classList.contains('display-none'))){
+          esconderUls.classList.add('display-none')
+        }
+      })
+
+      SideBarDrop.forEach(esconderUls =>{
+        if((esconderUls.classList.contains('display-none'))){
+          esconderUls.classList.remove('display-none')
+        }
+      })
+
     nav.style.width = "var(--menu-collapsed-width)";
   }
 });
@@ -28,8 +42,16 @@ button.addEventListener('click', () => {
 
 
 SideBarDrop.forEach(dropMenu => {
+
+
   dropMenu.addEventListener('click', () => {
-    const ul = dropMenu.querySelector('ul'),
+    spans.forEach(removeDisplayNone => {
+      if(removeDisplayNone.classList.contains('display-none')){
+        console.log( removeDisplayNone)
+      }
+      
+      else{
+        const ul = dropMenu.querySelector('ul'),
           arrow = dropMenu.querySelector('span .bi-caret-right-fill');
           const clickedElements = [];
 
@@ -46,7 +68,6 @@ SideBarDrop.forEach(dropMenu => {
     });
    
     
-
         if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-right-fill') ) {
            
             noSideBarList.forEach(noSideBarListItem => {
@@ -56,8 +77,6 @@ SideBarDrop.forEach(dropMenu => {
            
             });
 
-
-            
             ul.classList.remove('display-none')
             ul.classList.add('d-flex')
             arrow.classList.remove('bi-caret-right-fill')
@@ -86,7 +105,11 @@ SideBarDrop.forEach(dropMenu => {
             
             })
     }
-
+  
+      }
+    });
     
   });
+ 
 });
+
