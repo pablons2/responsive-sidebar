@@ -49,20 +49,20 @@ button.addEventListener('click', () => {
 
 
 /* Ação do dropdown fechado */
-// if (!menuAberto) {
-//   SideBarDrop.forEach(dropMenuLateral => {
-//     dropMenuLateral.addEventListener('click', (event) => {
-//       const clickedItem = event.currentTarget;
-//       const ul = clickedItem.querySelector('ul');
-//       const subMenus = ul.querySelectorAll('ul');
+if (!menuAberto) {
+  SideBarDrop.forEach(dropMenuLateral => {
+    dropMenuLateral.addEventListener('click', (event) => {
+      const clickedItem = event.currentTarget;
+      const ul = clickedItem.querySelector('ul');
+      const subMenus = ul.querySelectorAll('ul');
       
-//       subMenus.forEach(subMenu => {
-//         subMenu.classList.toggle('ulMobile');
-//         subMenu.classList.toggle('display-none');
-//       });
-//     });
-//   });
-// }
+      subMenus.forEach(subMenu => {
+        subMenu.classList.toggle('ulMobile');
+        subMenu.classList.toggle('display-none');
+      });
+    });
+  });
+}
 
 
 
@@ -93,6 +93,7 @@ if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-
 
   });
   ul.classList.remove('display-none')
+  ul.classList.remove('ulMobile')
         ul.classList.add('d-flex')
         arrow.classList.remove('bi-caret-right-fill')
         arrow.classList.add('bi-caret-left-fill')
@@ -100,6 +101,7 @@ if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-
    else{
         ul.classList.remove('d-flex')
         ul.classList.add('display-none')
+        ul.classList.add('ulMobile')
 
         SideBarDrop.forEach(displayBlock =>{
           if(displayBlock.classList.contains('display-none')){
