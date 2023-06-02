@@ -8,33 +8,33 @@ checkUls = nav.querySelectorAll('ul');
 var clickedOrNotBtn = false;
 button.addEventListener('click', () => {
   clickedOrNotBtn = true;
-  if (icon.classList.contains('bi-list')) {
-    nav.style.width = "var(--menu-collapse-width)";
+  if (icon.classList.contains('bi-x')) {
+    nav.style.width = "var(--menu-collapsed-width)";
     spans.forEach(removeDisplayNone => {
-      removeDisplayNone.classList.remove('display-none');
+      removeDisplayNone.classList.add('display-none');
     });
-    icon.classList.remove('bi-list');
-    icon.classList.add('bi-x');
-  } else {
-    icon.classList.add('bi-list');
     icon.classList.remove('bi-x');
+    icon.classList.add('bi-list');
+  } else {
+    icon.classList.add('bi-x');
+    icon.classList.remove('bi-list');
     spans.forEach(addDisplayNone => {
-      addDisplayNone.classList.add('display-none');
+      addDisplayNone.classList.remove('display-none');
     });
 
       checkUls.forEach(esconderUls =>{
-        if(!(esconderUls.classList.contains('display-none'))){
+        if((esconderUls.classList.contains('display-none'))){
           esconderUls.classList.add('display-none')
         }
       })
 
       SideBarDrop.forEach(esconderUls =>{
-        if((esconderUls.classList.contains('display-none'))){
+        if(!(esconderUls.classList.contains('display-none'))){
           esconderUls.classList.remove('display-none')
         }
       })
 
-    nav.style.width = "var(--menu-collapsed-width)";
+    nav.style.width = "var(--menu-collapse-width)";
   }
 });
 
@@ -42,16 +42,8 @@ button.addEventListener('click', () => {
 
 
 SideBarDrop.forEach(dropMenu => {
-
-
   dropMenu.addEventListener('click', () => {
-    spans.forEach(removeDisplayNone => {
-      if(removeDisplayNone.classList.contains('display-none')){
-        console.log( removeDisplayNone)
-      }
-      
-      else{
-        const ul = dropMenu.querySelector('ul'),
+    const ul = dropMenu.querySelector('ul'),
           arrow = dropMenu.querySelector('span .bi-caret-right-fill');
           const clickedElements = [];
 
@@ -66,18 +58,15 @@ SideBarDrop.forEach(dropMenu => {
     notClickedElements.forEach(elementNaoClicado => {
         elementNaoClicado.classList.add('display-none')
     });
-   
-    
-        if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-right-fill') ) {
-           
-            noSideBarList.forEach(noSideBarListItem => {
-              if (!(noSideBarListItem.classList.contains('display-none'))) {
-                noSideBarListItem.classList.add('display-none');
-              }
-           
-            });
+    if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-right-fill') ) {
 
-            ul.classList.remove('display-none')
+      noSideBarList.forEach(noSideBarListItem => {
+        if (!(noSideBarListItem.classList.contains('display-none'))) {
+          noSideBarListItem.classList.add('display-none');
+        }
+
+      });
+      ul.classList.remove('display-none')
             ul.classList.add('d-flex')
             arrow.classList.remove('bi-caret-right-fill')
             arrow.classList.add('bi-caret-left-fill')
@@ -85,7 +74,7 @@ SideBarDrop.forEach(dropMenu => {
        else{
             ul.classList.remove('d-flex')
             ul.classList.add('display-none')
-            
+
             SideBarDrop.forEach(displayBlock =>{
               if(displayBlock.classList.contains('display-none')){
                 displayBlock.classList.remove('display-none')
@@ -105,11 +94,7 @@ SideBarDrop.forEach(dropMenu => {
             
             })
     }
-  
-      }
-    });
-    
-  });
- 
-});
 
+
+  });
+});
