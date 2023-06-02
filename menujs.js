@@ -10,6 +10,7 @@ ul = nav.querySelectorAll('.withSideBarList ul');
 
 var clickedOrNotBtn = false;
 var menuAberto = true
+
 button.addEventListener('click', () => {
   clickedOrNotBtn = true;
   if (icon.classList.contains('bi-x')) {
@@ -40,7 +41,7 @@ button.addEventListener('click', () => {
       })
 
     nav.style.width = "var(--menu-collapse-width)";
-    menuAberto = true
+   
   }
 
   console.log(menuAberto)
@@ -49,25 +50,23 @@ button.addEventListener('click', () => {
 
 
 /* Ação do dropdown fechado */
-if (!menuAberto) {
+
+if (menuAberto===false ) {
   SideBarDrop.forEach(dropMenuLateral => {
-    dropMenuLateral.addEventListener('click', (event) => {
+    console.log(menuAberto)
+      dropMenuLateral.addEventListener('click', (event) => {
       const clickedItem = event.currentTarget;
       const ul = clickedItem.querySelector('ul');
       const subMenus = ul.querySelectorAll('ul');
-      
       subMenus.forEach(subMenu => {
-        subMenu.classList.toggle('ulMobile');
-        subMenu.classList.toggle('display-none');
+        subMenu.classList.remove('display-none');
       });
     });
   });
 }
 
 
-
 /*Ação do dropdown aberto*/
-
 SideBarDrop.forEach(dropMenu => {
   dropMenu.addEventListener('click', () => {  
       const ul = dropMenu.querySelector('ul'),
