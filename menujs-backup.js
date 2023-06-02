@@ -49,20 +49,20 @@ button.addEventListener('click', () => {
 
 
 /* Ação do dropdown fechado */
-// if (!menuAberto) {
-//   SideBarDrop.forEach(dropMenuLateral => {
-//     dropMenuLateral.addEventListener('click', (event) => {
-//       const clickedItem = event.currentTarget;
-//       const ul = clickedItem.querySelector('ul');
-//       const subMenus = ul.querySelectorAll('ul');
+if (!menuAberto) {
+  SideBarDrop.forEach(dropMenuLateral => {
+    dropMenuLateral.addEventListener('click', (event) => {
+      const clickedItem = event.currentTarget;
+      const ul = clickedItem.querySelector('ul');
+      const subMenus = ul.querySelectorAll('ul');
       
-//       subMenus.forEach(subMenu => {
-//         subMenu.classList.toggle('ulMobile');
-//         subMenu.classList.toggle('display-none');
-//       });
-//     });
-//   });
-// }
+      subMenus.forEach(subMenu => {
+        subMenu.classList.toggle('ulMobile');
+        subMenu.classList.toggle('display-none');
+      });
+    });
+  });
+}
 
 
 
@@ -121,6 +121,9 @@ if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-
         })
 }
      
+           
+
+
   });
 });
 
