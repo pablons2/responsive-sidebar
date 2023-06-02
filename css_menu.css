@@ -7,6 +7,28 @@
     font-family: 'Open Sans';
 }
 
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: blue orange;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--site-bg-color);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--sidebar-bg-color);
+    border-radius: 20px;
+    border: 2px solid var(--light-bg-color);
+  }
+
 /* Configuração cores padrões bootstrap  v.5*/
 .page-loader-wrapper {
     display: none;
