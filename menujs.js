@@ -4,9 +4,9 @@ icon = button.querySelector('i'),
 spans = nav.querySelectorAll('span'),
 noSideBarList = nav.querySelectorAll('#bodySideBar .noSideBarList'),
 SideBarDrop = nav.querySelectorAll('#bodySideBar .withSideBarList'),
+withSideBarList = nav.querySelectorAll('#bodySideBar .withSideBarList'),
 checkUls = nav.querySelectorAll('ul'),
 ul = nav.querySelectorAll('.withSideBarList ul');
-
 
 var clickedOrNotBtn = false;
 var menuAberto = true
@@ -49,24 +49,30 @@ button.addEventListener('click', () => {
 
 
 /* Ação do dropdown fechado */
-if (!menuAberto) {
-  SideBarDrop.forEach(dropMenuLateral => {
-    dropMenuLateral.addEventListener('click', (event) => {
-      const clickedItem = event.currentTarget;
-      const ul = clickedItem.querySelector('ul');
-      const subMenus = ul.querySelectorAll('ul');
+ 
+function acaoDropFechado(){
+
+    
+  withSideBarList.forEach(buscarUls =>{
+    const ul = buscarUls.querySelector('ul')
+    buscarUls.addEventListener("click", ()=>{
+      if(ul.classList.contains('display-none')){
+        ul.classList.toggle('display-none')
+      }
+      else{
+        ul.classList.remove('ulMobile')
+        nav.style.width('var(--menu-collapse-width)')
+      }
       
-      subMenus.forEach(subMenu => {
-        subMenu.classList.toggle('ulMobile');
-        subMenu.classList.toggle('display-none');
-      });
-    });
-  });
+    })
+  })
+
 }
 
 
 
 /*Ação do dropdown aberto*/
+function acaoDropAberto(){
 
 SideBarDrop.forEach(dropMenu => {
   dropMenu.addEventListener('click', () => {  
@@ -92,11 +98,14 @@ if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-
     }
 
   });
+
   ul.classList.remove('display-none')
   ul.classList.remove('ulMobile')
         ul.classList.add('d-flex')
         arrow.classList.remove('bi-caret-right-fill')
         arrow.classList.add('bi-caret-left-fill')
+    
+      
 }
    else{
         ul.classList.remove('d-flex')
@@ -126,3 +135,11 @@ if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-
   });
 });
 
+}
+
+if(nav.style.width == "var(--menu-collapse-width)"){
+  acaoDropFechado()
+}
+else{
+  acaoDropAberto()
+}
