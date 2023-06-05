@@ -4,23 +4,25 @@ icon = button.querySelector('i'),
 spans = nav.querySelectorAll('span'),
 noSideBarList = nav.querySelectorAll('#bodySideBar .noSideBarList'),
 SideBarDrop = nav.querySelectorAll('#bodySideBar .withSideBarList'),
-checkUls = nav.querySelectorAll('ul'),
+checkUls = nav.querySelectorAll('.ul'),
 ul = nav.querySelectorAll('.withSideBarList ul');
+
 
 
 var clickedOrNotBtn = false;
 var menuAberto = true
 
 button.addEventListener('click', () => {
+ 
   clickedOrNotBtn = true;
   if (icon.classList.contains('bi-x')) {
     nav.style.width = "var(--menu-collapsed-width)";
     spans.forEach(removeDisplayNone => {
       removeDisplayNone.classList.add('display-none');
     });
-    icon.classList.remove('bi-x');
-    icon.classList.add('bi-list');
-    menuAberto = false
+    icon.classList.toggle('bi-x');
+    icon.classList.toggle('bi-list');
+    
   } else {
     icon.classList.add('bi-x');
     icon.classList.remove('bi-list');
@@ -44,27 +46,38 @@ button.addEventListener('click', () => {
    
   }
 
+    if(nav.style.width == "var(--menu-collapsed-width)"){
+      menuAberto = false
+    }
+    else{
+      menuAberto = true
+    }
   console.log(menuAberto)
   
+
 });
 
 
+  
+  
 /* Ação do dropdown fechado */
-
-if (menuAberto===false ) {
+function menuFechado() {
   SideBarDrop.forEach(dropMenuLateral => {
-    console.log(menuAberto)
-      dropMenuLateral.addEventListener('click', (event) => {
+    console.log(menuAberto);
+    dropMenuLateral.addEventListener('click', (event) => {
       const clickedItem = event.currentTarget;
       const ul = clickedItem.querySelector('ul');
       const subMenus = ul.querySelectorAll('ul');
       subMenus.forEach(subMenu => {
         subMenu.classList.remove('display-none');
+        subMenu.classList.remove('ul');
       });
     });
   });
 }
 
+
+function menuAberto_(){
 
 /*Ação do dropdown aberto*/
 SideBarDrop.forEach(dropMenu => {
@@ -125,3 +138,17 @@ if (ul.classList.contains('display-none') && arrow.classList.contains('bi-caret-
   });
 });
 
+}
+
+
+
+
+if(menuAberto === true) {
+
+  menuAberto_()
+}
+
+else{
+  menuFechado()
+  }
+  

@@ -276,7 +276,7 @@ nav #bodySideBar {
 
 }
 
-.withSideBarList ul {
+.withSideBarList .ul {
     list-style: none;
     width: 100%;
     display: flex;
@@ -285,25 +285,25 @@ nav #bodySideBar {
     padding: 0 0 0 0 !important;
 }
 
-.withSideBarList ul li {
+.withSideBarList .ul li {
     padding-top: 22px;
     display: flex;
     align-items: center;
 }
 
-.withSideBarList ul li:hover {
+.withSideBarList .ul li:hover {
 
     background-color: var(--blue-100);
 
 }
 
-.withSideBarList ul li>a {
+.withSideBarList .ul li>a {
     margin-left: 24px;
     top: -0.5rem;
     position: relative;
 }
 
-.withSideBarList ul li>a:hover {
+.withSideBarList .ul li>a:hover {
     margin-left: 28px;
 
 }
